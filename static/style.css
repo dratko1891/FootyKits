@@ -1,0 +1,222 @@
+body {
+    background: linear-gradient(to bottom, white, whitesmoke) no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;  
+    font-family: "Assistant", sans-serif;
+    height: 170vh;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    background: grey;
+}
+
+nav p{
+    flex: 1;
+    text-align: left;
+    color: white;
+    align-items: center;
+
+}
+
+.status{
+    color: white;
+    background: rgba(0, 0, 0, 0.503);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+
+}
+
+#buttons {
+    display: flex;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: transparent;
+}
+
+#buttons:hover {
+    background: rgba(51, 0, 255, 0.3);
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: black;
+    margin-bottom: 15px;
+}
+
+form {
+    width: 40%;
+    margin: 25px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a4a4a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.flash-messages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.flash-message {
+    padding: 12px 18px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+}
+
+.success { background-color: #28a745; } 
+.danger { background-color: #dc3545; }   
+.warning { background-color: #ffc107; }  
+.default { background-color: #6c757d; }  
+
+h1.title {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 26px;
+    font-weight: bold;
+    color: black;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px;
+    padding: 20px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.product-card {
+    background-color: silver;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 200px;
+    max-height: 300px;
+    min-height: 300px;
+    color: black;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.pristitle{
+    margin-top: 10px;
+}
+
+.product-card:hover {
+    transform: scale(1.035);
+}
+
+.product-card img {
+    max-width: 200px;
+    max-height: 300px;
+    border-radius: 4px;
+    
+}
+
+.busch {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+.product-img {
+    flex: 1; 
+    text-align: left;
+    padding-left: 60px;
+    padding-top: 60px;
+    max-width: 400px;  
+    max-height: 400px;  
+}
+
+.product-img img {
+    max-width: 400px;  
+    max-height: 400px;
+}
+
+.product-container {
+    display: flex;
+    align-items: center;
+    max-width: 800px; 
+    margin: auto;
+    gap: 20px; 
+}
+
+.product-info label {
+    font-weight: bold;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.product-info select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.product-info h2{
+    text-align: left;
+}
+
+.product-info button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.product-info button {
+    background-color: #2c2c2c;
+    color: white;
+    margin-top: 15px;
+}
+

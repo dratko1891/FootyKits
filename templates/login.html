@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+</head>
+<body>
+    <nav>
+        <nav id="buttons">
+        <a href="{{url_for('index')}}">Home</a>
+        <a href="{{url_for('login')}}">Members</a>
+
+        
+    </nav>
+    
+    {% block content %}
+  <div id="glass">
+    <h1>Logga in</h1>
+    <form method="POST">
+        <label for="username">Användarnamn:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Lösenord:</label>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" name="Logga in" value="Logga in">
+        <button type="button" onclick="window.location.href='{{ url_for('register') }}'">Register</button>
+        </form>
+
+    </div>
+
+    {% endblock %}
+</body>
+</html>

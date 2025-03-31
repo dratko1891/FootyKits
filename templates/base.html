@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap" rel="stylesheet">
+    <script src="store.js"></script>
+    <title>
+
+    
+    {% block title %}
+        Hem
+    {% endblock %}
+    </title>
+</head>
+<body>
+    <header>
+    <nav>
+        <p>
+            {%if 'username' in session%}
+               Status: Logged in as {{session['username']}}
+                <a class="status" href="{{url_for('logout') }}">Logout</a>
+            {% else %}
+                Status: Not logged in
+                <a class="status" href="{{url_for('login') }}">Login</a>
+            {% endif %}
+        </p>
+        {%if 'username' in session%}
+        <nav id="buttons">
+            <a href="{{ url_for('favorites') }}">
+                <img src="{{ url_for('static', filename='images/Favoriter.png') }}" alt="Favoriter" width="40" height="40">
+            </a>
+        </nav>
+        {% endif %}
+
+        <nav id="buttons">
+        <a href="{{url_for('products')}}">
+            <img src="{{ url_for('static', filename='images/home.png') }}" alt="Hem" width="40" height="40">    
+        </a>
+        </nav>
+
+        <nav id="buttons">
+        <a href="{{ url_for('success') }}">
+            <img src="{{ url_for('static', filename='images/account.png') }}" alt="Konto" width="40" height="40">
+        </a>
+        </nav>
+
+        <nav id="buttons">
+            <a href="{{ url_for('cart') }}">
+                <img src="{{ url_for('static', filename='images/cart.png') }}" alt="Cart" width="40" height="40">
+            </a>
+        </nav>
+    </nav>
+</header>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="flash-message 
+                    {% if category == 'success' %}success
+                    {% elif category == 'danger' %}danger
+                    {% elif category == 'warning' %}warning
+                    {% else %}default{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            let messages = document.querySelectorAll(".flash-message");
+            messages.forEach(function(message) {
+                message.style.transition = "opacity 0.5s ease";
+                message.style.opacity = "0";
+                setTimeout(() => message.remove(), 500); 
+            });
+        }, 2500); 
+    });
+</script>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

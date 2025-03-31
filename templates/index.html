@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Hem
+{% endblock %}
+
+{% block content %}
+<h1 class="title">Kundfavoriter</h1>
+<div class="product-grid">
+
+
+    {% for product in products %}
+    <a class="busch" href="{{ url_for('product_page', product_id=product['id']) }}">
+        <div class="product-card">
+            <img src="{{base_url}}{{product['img']}}">
+            <p class="pristitle" >{{product['title']}}</p>
+            <p class="pristitle" >{{product['price']}} kr</p>
+        </div>
+    </a>
+
+{% endfor %}
+</div>
+{% endblock %}
