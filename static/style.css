@@ -1,9 +1,9 @@
 body {
     background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+    font-family: "Assistant", sans-serif;
     margin: 0;
     padding: 0;
-    font-family: "Assistant", sans-serif;
-    height: 230vh;
+    min-height: 100vh;
 }
 
 nav {
@@ -57,7 +57,7 @@ h1.title {
     color: #2c3e50;
 }
 
-form {
+.hejdå{
     width: 45%;
     margin: 30px auto;
     padding: 25px;
@@ -188,31 +188,24 @@ button:focus {
     text-transform: uppercase;
 }
 
-.product-form {
-    background-color: rgba(255, 255, 255, 0);
-    padding: 10px;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 400px;
-    transition: background 0.3s ease;
-}
-
 .form-buttons {
     display: flex;
     gap: 12px;
     margin-top: 10px;
 }
 
-.btn-cart,
 .btn-buy-now {
     font-size: 16px;
     font-weight: 600;
+    padding: 12px;
     border-radius: 6px;
     cursor: pointer;
     text-align: center;
+    font-weight: bold;
     text-decoration: none;
     display: inline-block;
 }
+
 
 .btn-cart {
     background-color: #1f4e5f;
@@ -245,8 +238,6 @@ h1 {
     border-radius: 12px;
 }
 
-
-
 .cart-img img {
     width: 60px;
     height: 60px;
@@ -265,16 +256,6 @@ h1 {
 .cart-price {
     font-weight: bold;
     color: #2980b9;
-}
-
-.cart-quantity {
-    width: 60px;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    text-align: center;
-    transition: border-color 0.3s ease;
 }
 
 .cart-quantity:focus {
@@ -298,15 +279,30 @@ h1 {
     transform: translateY(-2px);
 }
 
-#cart-total {
+.checkout-container {
     width: 90%;
-    max-width: 900px;
-    margin: 40px auto;
-    text-align: right;
-    font-size: 24px;
-    font-weight: bold;
-    color: #2c3e50;
+    max-width: 500px;
+    margin: 30px auto;
+    text-align: left;
 }
+
+.checkout-button {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(to right, #27ae60, #2ecc71);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.checkout-button:hover {
+    background: linear-gradient(to right, #2ecc71, #27ae60);
+    transform: translateY(-2px);
+}
+
 
 p {
     text-align: center;
@@ -382,7 +378,7 @@ select {
     color: #444;
     margin: auto;
     background:rgba(22, 185, 210, 0.2);
-    border-radius: 5px;
+    border-radius: 5px; 
 }
 
 
@@ -393,7 +389,6 @@ select {
 }
 
 .product-details ul {
-    list-style-type: disc;
     padding-left: 24px;
     margin-top: 8px;
     margin-bottom: 16px;
@@ -408,4 +403,135 @@ select {
 .product-details a:hover {
     color: #003366;
 }
+
+.order_success{
+    padding-top: 40px;
+    text-align: center;
+}
+
+.site-footer {
+    background-color: #f0f0f0;
+    color: #333;
+    margin: auto;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    border-top: 1px solid #ccc;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content.img-modal {
+    background-color: transparent;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.size-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.close-button {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: white;
+    color: black;
+    font-size: 24px;
+    border-radius: 50%;
+    padding: 6px 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.close-button:hover {
+    background: #ddd;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: 70vh;
+}
+
+.profile-card {
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.profile-card h2 {
+    margin-top: 12px;
+    font-size: 28px;
+    color: #2c3e50;
+}
+
+.profile-card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.profile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile-btn {
+    padding: 12px 20px;
+    border: none;
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.profile-btn:hover {
+    background: #2980b9;
+}
+
+.profile-btn.logout {
+    background: #e74c3c;
+}
+
+.profile-btn.logout:hover {
+    background: #c0392b;
+}
+
 

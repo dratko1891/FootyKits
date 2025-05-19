@@ -1,6 +1,40 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Checkout
+{% endblock %}
 
 {% block content %}
+<h1 class="checkout-title">Checkout</h1>
+
+<form action="{{ url_for('confirm_order') }}" method="POST" class="checkout-form">
+    <div class="checkout-container">
+        <div class="checkout-section">
+            <h2>Leveransadress</h2>
+            <label for="name">Fullständigt namn</label>
+            <input type="text" id="name" name="name" placeholder="Ange ditt fullständiga namn" required>
+
+            <label for="address">Adress</label>
+            <input type="text" id="address" name="address" placeholder="Ange din adress" required>
+
+            <label for="postal_code">Postnummer</label>
+            <input type="text" id="postal_code" name="postal_code" placeholder="Ange ditt postnummer" required>
+
+            <label for="city">Stad</label>
+            <input type="text" id="city" name="city" placeholder="Ange din stad" required>
+        </div>
+
+        <div class="checkout-section">
+            <h2>Kontaktuppgifter</h2>
+            <label for="email">E-postadress</label>
+            <input type="email" id="email" name="email" placeholder="Ange din e-postadress" required>
+
+            <label for="phone">Telefonnummer</label>
+            <input type="tel" id="phone" name="phone" placeholder="Ange ditt telefonnummer">
+        </div>
+        <button type="submit" class="checkout-btn">Slutför beställning</button>
+    </div>
+</form>
+
 
 {% endblock %}

@@ -18,17 +18,21 @@ Varukorg
                 <span>{{ item.title }}</span>
                 <span>Storlek: {{ item.size }}</span>  
                 <span class="cart-price">{{ item.price }} SEK</span>
-                <input class="cart-quantity" type="number" value="{{ item.quantity }}" min="1">
                 <form action="{{ url_for('remove_from_cart') }}" method="POST" style="display:inline;">
                     <input type="hidden" name="product_id" value="{{ item.product_id }}">
                     <input type="hidden" name="size" value="{{ item.size }}">
                     <button type="submit" class="cart-del">Ta bort</button>
                 </form>
-                
             </div>
             {% endfor %}
         </div>
-        <h3 id="cart-total"></h3>
+
+        <h3 id="cart-total">Totalt: {{ total_price }} SEK</h3>
+        
+        <div class="checkout-container">
+            <a href="{{ url_for('checkout') }}" class="checkout-button">Gå till kassan</a>
+        </div>
+
     {% else %}
         <p>Din varukorg är tom.</p>
     {% endif %}

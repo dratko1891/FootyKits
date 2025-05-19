@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Bekräftelse
+{% endblock %}
+
+{% block content %}
+<div class="order_success">
+    <img src="{{ base_url }}success.png" alt="Ordern lyckades" style="max-width: 100px; margin-bottom: 20px;">
+    <p>Tack för din order! <br> Du har beställt följande produkter:</p>
+    
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        {% for item in items %}
+            <div style="border: 1px solid #ccc; padding: 10px; width: 200px; text-align: center;">
+                <img src="{{ base_url }}{{ item.img }}" alt="{{ item.title }}" width="120">
+                <h4>{{ item.title }}</h4>
+                <p>Storlek: {{ item.size }}</p>
+                <p>Pris: {{ item.price }} kr</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

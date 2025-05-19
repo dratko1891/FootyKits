@@ -38,10 +38,28 @@ def cart():
     if 'username' not in session:
         flash("Du måste vara inloggad för att visa din varukorg.", "warning")
         return redirect(url_for('login'))
-
+    
     cart_items = session.get('cart', [])
+
+    total_price = sum(float(item['price']) * int(item.get('quantity', 1)) for item in cart_items)
+
     base_url = "https://hcqxsfiqisutksicxfjr.supabase.co/storage/v1/object/public/images/"
-    return render_template('cart.html', cartItems=cart_items, base_url=base_url)
+    return render_template('cart.html', cartItems=cart_items, base_url=base_url, total_price = total_price)
+
+
+from flask import request, redirect, url_for, flash
+
+@app.route('/confirm_order', methods=['POST'])
+def confirm_order():
+
+    return redirect(url_for('order_success'))  
+
+
+@app.route('/order_success')
+def order_success():
+    cart = session.get('cart', [])  
+    base_url = "https://hcqxsfiqisutksicxfjr.supabase.co/storage/v1/object/public/images/"
+    return render_template('order_success.html', items=cart, base_url=base_url)
 
 
 @app.route('/add_to_cart', methods=['POST'])

@@ -17,32 +17,24 @@
     <header>
     <nav>
         <p>
-            {%if 'username' in session%}
-               Status: Logged in as {{session['username']}}
-                <a class="status" href="{{url_for('logout') }}">Logout</a>
+            {% if 'username' in session %}
+                Status: Logged in as {{ session['username'] }}
+                <a class="status" href="{{ url_for('logout') }}">Logout</a>
             {% else %}
                 Status: Not logged in
-                <a class="status" href="{{url_for('login') }}">Login</a>
+                <a class="status" href="{{ url_for('login') }}">Login</a>
             {% endif %}
         </p>
-        {%if 'username' in session%}
         <nav id="buttons">
-            <a href="{{ url_for('favorites') }}">
-                <img src="{{ url_for('static', filename='images/Favoriter.png') }}" alt="Favoriter" width="40" height="40">
+            <a href="{{ url_for('products') }}">
+                <img src="{{ url_for('static', filename='images/home.png') }}" alt="Hem" width="40" height="40">    
             </a>
         </nav>
-        {% endif %}
 
         <nav id="buttons">
-        <a href="{{url_for('products')}}">
-            <img src="{{ url_for('static', filename='images/home.png') }}" alt="Hem" width="40" height="40">    
-        </a>
-        </nav>
-
-        <nav id="buttons">
-        <a href="{{ url_for('success') }}">
-            <img src="{{ url_for('static', filename='images/account.png') }}" alt="Konto" width="40" height="40">
-        </a>
+            <a href="{{ url_for('success') }}">
+                <img src="{{ url_for('static', filename='images/account.png') }}" alt="Konto" width="40" height="40">
+            </a>
         </nav>
 
         <nav id="buttons">
@@ -52,6 +44,7 @@
         </nav>
     </nav>
 </header>
+
 {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
         <div class="flash-messages">
@@ -80,7 +73,13 @@
         }, 2500); 
     });
 </script>
-    {% block content %}
-    {% endblock %}
+
+{% block content %}
+{% endblock %}
+
+<footer class="site-footer">
+    <p>&copy; 2025 FootyKits. Alla rättigheter förbehållna.</p>
+</footer>
+
 </body>
 </html>

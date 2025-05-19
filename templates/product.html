@@ -47,7 +47,18 @@ Produkter
     </ul>
 
     <h4>Storleksguide</h4>
-    <p>Normal passform. Välj din vanliga storlek. <a href="#">Visa storlekstabell</a></p>
+    <li>
+      Normal passform. Välj din vanliga storlek. 
+      <a href="#" id="openModal">Visa storlekstabell</a>
+    </li>
+
+    <!-- Modal med bild -->
+    <div id="sizeModal" class="modal">
+      <div class="modal-content img-modal">
+        <span class="close-button">&times;</span>
+        <img src="{{ url_for('static', filename='images/storlekstabell.png') }}" alt="Storlekstabell" class="size-img">
+      </div>
+    </div>
 
     <h4>Leverans & Returer</h4>
     <ul>
@@ -56,9 +67,29 @@ Produkter
         <li>Öppet köp i 30 dagar</li>
     </ul>
 </div>
-</div>
-</div>
 
+<!-- Modal Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("sizeModal");
+    const openModal = document.getElementById("openModal");
+    const closeModal = document.querySelector(".close-button");
 
+    openModal.onclick = function (e) {
+        e.preventDefault();
+        modal.style.display = "block";
+    };
+
+    closeModal.onclick = function () {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+});
+</script>
 
 {% endblock %}

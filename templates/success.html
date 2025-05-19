@@ -1,9 +1,20 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Lyckad inloggning
+Din Profil
 {% endblock %}
 
 {% block content %}
-<h1>Välkommen, {{ username }}!</h1>
+<div class="profile-container">
+    <div class="profile-card">
+        <h2>Välkommen, {{ username }}!</h2>
+        <p>Du är nu inloggad. Här kan du se din orderhistorik, hantera kontoinställningar eller fortsätta handla.</p>
+        
+        <div class="profile-links">
+            <a href="{{ url_for('products') }}" class="profile-btn">Gå till butiken</a>
+            <a href="{{ url_for('cart') }}" class="profile-btn">Visa varukorg</a>
+            <a href="{{ url_for('logout') }}" class="profile-btn logout">Logga ut</a>
+        </div>
+    </div>
+</div>
 {% endblock %}
