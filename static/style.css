@@ -166,12 +166,12 @@ button:focus {
     flex: 1;
     margin: 0 auto;
     text-align: center;
+    width: 90%;
 }
 .product-img img {
-    max-width: 400px;
+    max-width: 340px;
     height: auto;
-    border-radius: 3px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 .product-info p {
@@ -535,3 +535,15 @@ select {
 }
 
 
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .product-img img {
+        max-width: 100%; 
+        padding-top: 30px;
+    }
+
+}
