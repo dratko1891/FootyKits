@@ -6,18 +6,54 @@ Hem
 
 {% block content %}
 <h1 class="title">Kundfavoriter</h1>
-<div class="product-grid">
+    <label class="sortera" for="sort">Sortera efter:</label>
+            <select id="sort">
+            <option value="title_asc">Namn A-Ö</option>
+            <option value="title_desc">Namn Ö-A</option>
+            <option value="price_asc">Pris: Lägst först</option>
+            <option value="price_desc">Pris: Högst först</option>
+        </select>
 
-
+<div class="product-grid" id="productGrid">
     {% for product in products %}
     <a class="busch" href="{{ url_for('product_page', product_id=product['id']) }}">
-        <div class="product-card">
-            <img src="{{base_url}}{{product['img']}}">
-            <p class="pristitle">{{product['title']}}</p>
-            <p class="pristitle">{{product['price']}} kr</p>
+        <div class="product-card" 
+             data-title="{{ product['title'] | lower }}" 
+             data-price="{{ product['price'] | float }}">
+            <img src="{{ base_url }}{{ product['img'] }}">
+            <p class="pristitle">{{ product['title'] }}</p>
+            <p class="pristitle">{{ product['price'] }} kr</p>
         </div>
     </a>
-
-{% endfor %}
+    {% endfor %}
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sortSelect = document.getElementById("sort");
+        const productGrid = document.getElementById("productGrid");
+    
+        sortSelect.addEventListener("change", function () {
+            const productCards = Array.from(productGrid.querySelectorAll(".product-card"));
+    
+            const sortBy = this.value;
+
+            let sortedCards = productCards.sort((a, b) => {
+                if (sortBy === "title_asc") {
+                    return a.dataset.title.localeCompare(b.dataset.title);
+                } else if (sortBy === "title_desc") {
+                    return b.dataset.title.localeCompare(a.dataset.title);
+                } else if (sortBy === "price_asc") {
+                    return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                } else if (sortBy === "price_desc") {
+                    return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+                }
+            });
+    
+            productGrid.innerHTML = '';
+            sortedCards.forEach(card => {
+                productGrid.appendChild(card.parentElement); 
+            });
+        });
+    });
+    </script>
 {% endblock %}
