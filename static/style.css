@@ -6,6 +6,53 @@ body {
     min-height: 100vh;
 }
 
+body.dark-mode {
+    background: linear-gradient(to bottom, #1e1e1e, #3a3a3a);
+    color: #f0f0f0;
+}
+
+body.dark-mode nav {
+    background: #111;
+    color: #f0f0f0;
+}
+
+body.dark-mode .status,
+body.dark-mode .hejdå,
+body.dark-mode .product-card,
+body.dark-mode .cart-row,
+body.dark-mode .checkout-container,
+body.dark-mode .profile-card,
+body.dark-mode .site-footer {
+    background: #2c2c2c;
+    color: #f0f0f0;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode p,
+body.dark-mode label,
+body.dark-mode span,
+body.dark-mode li,
+body.dark-mode ul {
+    color: #f0f0f0;
+}
+
+body.dark-mode button,
+body.dark-mode .profile-btn {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+    background-color: #333;
+    color: #f0f0f0;
+    border: 1px solid #555;
+}
+
+
 nav {
     display: flex;
     align-items: center;
@@ -14,8 +61,30 @@ nav {
     background: #2c3e50;
     color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
 }
 
+#toggleTheme {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.darklightmode{
+    border-radius: 10px;
+    background: transparent;
+}
+
+  #dookie {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: transparent;
+    align-items: center;
+    border-radius: 6px;
+}
+  
 nav p {
     flex: 1;
     text-align: left;
@@ -68,6 +137,27 @@ h1.title {
     background: #fff;
 }
 
+.register{
+    width: 45%;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+}
+
+.rosa{
+    background-color: #1e90ff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 input {
     width: 90%;
     padding: 12px;
@@ -82,8 +172,6 @@ input:focus {
 }
 
 button {
-    width: 100%;
-    padding: 14px;
     background-color: #3498db;
     color: white;
     border: none;
@@ -91,15 +179,6 @@ button {
     cursor: pointer;
     font-size: 16px;
     transition: background 0.3s ease;
-}
-
-button:hover {
-    background-color: #2980b9;
-}
-
-button:focus {
-    outline: none;
-    box-shadow: 0 0 6px #2980b9;
 }
 
 .flash-messages {
@@ -132,6 +211,10 @@ button:focus {
 .sortera{
     font-weight: bold;
     margin-left: 30px;
+}
+
+option{
+    color: black;
 }
 
 .product-grid {
@@ -558,4 +641,9 @@ select {
         padding-top: 30px;
     }
 
+    nav {
+        align-items: flex-start;
+        gap: 6px;
+        padding: 10px;
+    }
 }

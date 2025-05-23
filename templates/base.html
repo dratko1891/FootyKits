@@ -42,7 +42,15 @@
                 <img src="{{ url_for('static', filename='images/cart.png') }}" alt="Cart" width="40" height="40">
             </a>
         </nav>
+
+        <nav id="dookie">
+            <button id="toggleTheme">
+                <img src="{{ url_for('static', filename='images/darklight.png') }}" width="40" height="40">
+            </button>
+        </nav>
     </nav>
+
+
 </header>
 
 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -73,6 +81,27 @@
         }, 2500); 
     });
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleButton = document.getElementById("toggleTheme");
+    
+        toggleButton.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+    
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
+        });
+    
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    });
+    </script>
+    
 
 {% block content %}
 {% endblock %}
